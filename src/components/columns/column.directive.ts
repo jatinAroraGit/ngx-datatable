@@ -6,7 +6,7 @@ import { ColumnChangesService } from '../../services/column-changes.service';
 
 @Directive({ selector: 'ngx-datatable-column' })
 export class DataTableColumnDirective implements OnChanges {
-  
+
   @Input() name: string;
   @Input() prop: TableColumnProp;
   @Input() frozenLeft: any;
@@ -27,6 +27,7 @@ export class DataTableColumnDirective implements OnChanges {
   @Input() cellClass: string | ((data: any) => string|any);
   @Input() summaryFunc: (cells: any[]) => any;
   @Input() summaryTemplate: TemplateRef<any>;
+  @Input() isTreeColumn: boolean;
 
   @Input()
   @ContentChild(DataTableColumnCellDirective, { read: TemplateRef })
@@ -37,9 +38,9 @@ export class DataTableColumnDirective implements OnChanges {
   headerTemplate: TemplateRef<any>;
 
   private isFirstChange = true;
-  
+
   constructor(private columnChangesService: ColumnChangesService) {}
-  
+
   ngOnChanges() {
     if (this.isFirstChange) {
       this.isFirstChange = false;

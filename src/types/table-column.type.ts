@@ -220,4 +220,13 @@ export interface TableColumn {
    * @memberOf TableColumn
    */
   summaryTemplate?: any;
+
+  /*
+   * Is tree displayed on this column
+   *
+   * @type {boolean}
+   * @memberOf TableColumn
+   */
+  isTreeColumn?: boolean;
+
 }

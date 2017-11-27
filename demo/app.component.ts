@@ -56,6 +56,12 @@ import { Location, LocationStrategy, HashLocationStrategy } from '@angular/commo
             </ul>
           </li>
           <li>
+            <h4>Tree</h4>
+            <ul>
+              <li><a href="#fullscreen-tree" (click)="state='fullscreen-tree'">Full screen Tree</a></li>
+            </ul>
+          </li>
+          <li>
             <h4>Rows</h4>
             <ul>
               <li><a href="#row-grouping" (click)="state='row-grouping'">Row Grouping</a></li>
@@ -148,6 +154,9 @@ import { Location, LocationStrategy, HashLocationStrategy } from '@angular/commo
         <!-- Themes -->
         <basic-dark-theme-demo *ngIf="state === 'dark'"></basic-dark-theme-demo>
         <basic-bootstrap-theme-demo  *ngIf="state === 'bootstrap'"></basic-bootstrap-theme-demo>
+
+        <!-- Tree -->
+        <full-screen-tree-demo *ngIf="state === 'fullscreen-tree'"></full-screen-tree-demo>
 
         <!-- Paging -->
         <row-grouping-demo *ngIf="state === 'row-grouping'"></row-grouping-demo>

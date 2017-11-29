@@ -64,6 +64,8 @@ import { MouseEvent } from '../../events';
             [expanded]="getRowExpanded(group)"
             [rowClass]="rowClass"
             [displayCheck]="displayCheck"
+            [treeStatus]="group.treeStatus"
+            (treeAction)="onTreeAction(group)"
             (activate)="selector.onActivate($event, indexes.first + i)">
           </datatable-body-row>
           <ng-template #groupedRowsTemplate>
@@ -143,6 +145,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
   }
 
   @Input() set rows(val: any[]) {
+    console.log('@@@@@ - body', val);
     this._rows = val;
     this.rowExpansions.clear();
     this.recalcLayout();
@@ -211,6 +214,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
   @Output() select: EventEmitter<any> = new EventEmitter();
   @Output() detailToggle: EventEmitter<any> = new EventEmitter();
   @Output() rowContextmenu = new EventEmitter<{ event: MouseEvent, row: any }>(false);
+  @Output() treeAction: EventEmitter<any> = new EventEmitter();
 
   @ViewChild(ScrollerComponent) scroller: ScrollerComponent;
 
@@ -738,6 +742,10 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    */
   getRowIndex(row: any): number {
     return this.rowIndexes.get(row) || 0;
+  }
+
+  onTreeAction(row: any) {
+    this.treeAction.emit({ row });
   }
 
 }

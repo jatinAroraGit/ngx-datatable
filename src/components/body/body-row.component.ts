@@ -28,7 +28,9 @@ import { MouseEvent, KeyboardEvent, Event } from '../../events';
         [column]="column"
         [rowHeight]="rowHeight"
         [displayCheck]="displayCheck"
-        (activate)="onActivate($event, ii)">
+        [treeStatus]="treeStatus"
+        (activate)="onActivate($event, ii)"
+        (treeAction)="onTreeAction()">
       </datatable-body-cell>
     </div>
   `
@@ -67,6 +69,8 @@ export class DataTableBodyRowComponent implements DoCheck {
   @Input() isSelected: boolean;
   @Input() rowIndex: number;
   @Input() displayCheck: any;
+  // loading, expanded, collapsed
+  @Input() treeStatus: string;
 
   @Input()
   set offsetX(val: number) {
@@ -106,6 +110,7 @@ export class DataTableBodyRowComponent implements DoCheck {
   }
 
   @Output() activate: EventEmitter<any> = new EventEmitter();
+  @Output() treeAction: EventEmitter<any> = new EventEmitter();
 
   _element: any;
   _columnGroupWidths: any;
@@ -220,4 +225,7 @@ export class DataTableBodyRowComponent implements DoCheck {
     this._columnGroupWidths = columnGroupWidths(colsByPin, this._columns);
   }
 
+  onTreeAction() {
+    this.treeAction.emit();
+  }
 }

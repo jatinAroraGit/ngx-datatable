@@ -46,6 +46,7 @@ import { TemplateRefTemplatesComponent } from './templates/template-obj.componen
 
 // -- Tree
 import { FullScreenTreeComponent } from './tree/fullscreen.component';
+import { ClientTreeComponent } from './tree/client-tree.component';
 
 // -- Selection
 import { CellSelectionComponent } from './selection/selection-cell.component';
@@ -121,6 +122,7 @@ import { SummaryRowInlineHtmlComponent } from './summary/summary-row-inline-html
     SummaryRowCustomTemplateComponent,
     SummaryRowServerPagingComponent,
     SummaryRowInlineHtmlComponent,
+    ClientTreeComponent
   ],
   imports: [BrowserModule, NgxDatatableModule],
   bootstrap: [AppComponent]

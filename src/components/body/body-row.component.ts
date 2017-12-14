@@ -1,5 +1,5 @@
 import {
-  Component, Input, HostBinding, ElementRef, Output, KeyValueDiffers, KeyValueDiffer,
+  Component, Input, HostBinding, ElementRef, Output, KeyValueDiffers, KeyValueDiffer, NgZone,
   EventEmitter, HostListener, ChangeDetectionStrategy, ChangeDetectorRef, DoCheck, SkipSelf
 } from '@angular/core';
 
@@ -64,7 +64,12 @@ export class DataTableBodyRowComponent implements DoCheck {
 
   @Input() expanded: boolean;
   @Input() rowClass: any;
-  @Input() row: any;
+  public row: any;
+  @Input('row') set rowSetter(val: any) {
+    this.zone.run(() => {
+      this.row = val;
+    });
+  }
   @Input() group: any;
   @Input() isSelected: boolean;
   @Input() rowIndex: number;
@@ -130,7 +135,8 @@ export class DataTableBodyRowComponent implements DoCheck {
       private differs: KeyValueDiffers,
       @SkipSelf() private scrollbarHelper: ScrollbarHelper,
       private cd: ChangeDetectorRef,
-      element: ElementRef) {
+      element: ElementRef,
+      private zone: NgZone) {
     this._element = element.nativeElement;
     this._rowDiffer = differs.find({}).create();
   }

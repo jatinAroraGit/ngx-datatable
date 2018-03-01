@@ -140,5 +140,8 @@
     "webpack-merge": "^4.1.1",
     "webpack-notifier": "^1.5.0",
     "zone.js": "^0.8.26"
+  },
+  "dependencies": {
+    "ng-drag-drop": "^4.0.0"
   }
 }

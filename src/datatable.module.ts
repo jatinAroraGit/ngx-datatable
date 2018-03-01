@@ -1,3 +1,4 @@
+import { NgDragDropModule } from 'ng-drag-drop';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -46,7 +47,8 @@ import {
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    NgDragDropModule.forRoot()
   ],
   providers: [
     ScrollbarHelper,

@@ -742,6 +742,13 @@ export class DatatableComponent implements OnInit, DoCheck, AfterViewInit {
       this.sortInternalRows();
     }
 
+    // auto group by parent on new update
+    this._internalRows = groupRowsByParents(
+      this._internalRows,
+      this.treeFromRelation,
+      this.treeToRelation
+    );
+
     // this has to be done to prevent the change detection
     // tree from freaking out because we are readjusting
     if (typeof requestAnimationFrame === 'undefined') {

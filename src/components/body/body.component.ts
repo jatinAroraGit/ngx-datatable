@@ -527,7 +527,7 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
 
       // z position for translate3d
       const zValue = this._rowCount - idx;
-      translateXY(styles, 0, zValue);
+      translateXY(styles, 0, pos, zValue);
     }
 
     return styles;

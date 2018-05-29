@@ -1,44 +1,5 @@
 # Changelog
 
-## 13.0.0
-
-* Breaking: Fixes several issues related to the summary row feature #1418
-* Fix: DataTableColumnDirective Input Binding Changes #1384
-* Fix: angular version #1420
-* Fix: issues when running npm run build --prod #1410
-
-## 12.0.0
-
-* Breaking: Upgraded to Angular 6 #1400
-* Feat: Added reorderable input #1261
-* Fix: Fixed rowHeight type in body component #1295
-* Fix: Fixed row selection for bootstrap theme #1357
-* Fix: Reflect minWidh & maxWidth props to body cell #1361
-
-## 11.3.0
-
-* Feat: Added summary row #1233
-* Fix: Fixed issue wi
-  th misaligned body content #1326
-* Fix: Fixed Default Sort Behavior Of Table With Custom Templates #1308
-* Chore: Fixed link in column api docs #1343
-* Chore: Fixed typo in docs #1342
-
-## 11.2.0
-
-* Feat: Add resize handler for non-resizable columns #1225
-* Fix: Pager Component Accessibility #1259
-* Fix: Fix missing row with virtualization and scrollbarV #1235
-* Fix: Fall back to view mode when select field value doesn't change #1241
-* Fix: Fix virtual-paging #1229
-* Fix: Fix column scaling on resize #1236
-* Fix: Propagate sortDir changes to template #1243
-* Fix: Add setStylesByGroup() in set column prop #1244
-
-## 11.1.7
-
-* Fix: Fix error w/ rows undefined on init
-
 ## 11.1.6
 
 * Bug: Ignore rxjs/operators

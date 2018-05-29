@@ -224,9 +224,7 @@ var DatatableComponent = /** @class */ (function () {
          */
         set: function (val) {
             this._rows = val;
-            if (val) {
-                this._internalRows = val.slice();
-            }
+            this._internalRows = val.slice();
             // auto sort on new updates
             if (!this.externalSorting) {
                 this.sortInternalRows();

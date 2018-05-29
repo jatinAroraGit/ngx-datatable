@@ -1,5 +1,5 @@
 /**
- * angular2-data-table v"13.0.0" (https://github.com/swimlane/angular2-data-table)
+ * angular2-data-table v"11.1.6" (https://github.com/swimlane/angular2-data-table)
  * Copyright 2016
  * Licensed under MIT
  */
@@ -2641,7 +2641,7 @@ __export(__webpack_require__("./src/components/columns/column-cell.directive.ts"
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -2875,9 +2875,7 @@ var DatatableComponent = /** @class */ (function () {
          */
         set: function (val) {
             this._rows = val;
-            if (val) {
-                this._internalRows = val.slice();
-            }
+            this._internalRows = val.slice();
             // auto sort on new updates
             if (!this.externalSorting) {
                 this.sortInternalRows();

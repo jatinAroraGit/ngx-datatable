@@ -1179,6 +1179,17 @@ export class DatatableComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   /**
+   * A row was expanded ot collapsed for tree
+   */
+  onTreeAction(event: any) {
+    const row = event.row;
+    // TODO: For duplicated items this will not work
+    const rowIndex = this._rows.findIndex(r =>
+      r[this.treeToRelation] === event.row[this.treeToRelation]);
+    this.treeAction.emit({row, rowIndex});
+  }
+
+  /**
    * listen for changes to input bindings of all DataTableColumnDirective and
    * trigger the columnTemplates.changes observable to emit
    */
@@ -1194,16 +1205,5 @@ export class DatatableComponent implements OnInit, DoCheck, AfterViewInit {
 
   private sortInternalRows(): void {
     this._internalRows = sortRows(this._internalRows, this._internalColumns, this.sorts);
-  }
-
-  /**
-   * A row was expanded ot collapsed for tree
-   */
-  onTreeAction(event: any) {
-    const row = event.row;
-    // TODO: For duplicated items this will not work
-    const rowIndex = this._rows.findIndex(r =>
-      r[this.treeToRelation] === event.row[this.treeToRelation]);
-    this.treeAction.emit({row, rowIndex});
   }
 }

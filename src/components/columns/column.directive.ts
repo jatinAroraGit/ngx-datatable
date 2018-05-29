@@ -43,18 +43,6 @@ export class DataTableColumnDirective implements OnChanges {
   @ContentChild(DataTableColumnHeaderDirective, { read: TemplateRef })
   headerTemplate: TemplateRef<any>;
 
-  private isFirstChange = true;
-
-  constructor(private columnChangesService: ColumnChangesService) {}
-
-  ngOnChanges() {
-    if (this.isFirstChange) {
-      this.isFirstChange = false;
-    } else {
-      this.columnChangesService.onInputChange();
-    }
-  }
-
   @Input()
   @ContentChild(DataTableColumnCellTreeExpander, { read: TemplateRef })
   treeExpanderTemplate: TemplateRef<any>;
@@ -70,4 +58,16 @@ export class DataTableColumnDirective implements OnChanges {
   @Input()
   @ContentChild(DataTableColumnCellTreeDisable, { read: TemplateRef })
   treeDisableTemplate: TemplateRef<any>;
+
+  private isFirstChange = true;
+
+  constructor(private columnChangesService: ColumnChangesService) {}
+
+  ngOnChanges() {
+    if (this.isFirstChange) {
+      this.isFirstChange = false;
+    } else {
+      this.columnChangesService.onInputChange();
+    }
+  }
 }
